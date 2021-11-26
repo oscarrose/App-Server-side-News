@@ -1,0 +1,51 @@
+﻿@model IEnumerable<LibraryNews.Models.Source>
+
+@{
+    ViewData["Title"] = "Sources";
+}
+
+<h1>Source</h1>
+<hr />
+<p>
+    <a class="btn btn-outline-primary btn-sm" asp-action="Create">Create New</a>
+</p>
+<form asp-controller="Sources" asp-action="Index">
+    <p>
+        <input type="text" class="txt text-sm-left" name="SearchString" placeholder="Source.." />
+        <button type="submit" class="btn btn-outline-primary btn-sm">Search</button>
+    </p>
+</form>
+<div class="table-responsive-sm">
+    <table class="table-lg table table-bordered border-dark">
+        <thead class="table-hover table-primary">
+            <tr align="right">
+               @* <th>
+                  Source Id
+                </th>*@
+                <th>
+                    Source
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr  align="right">
+               @* <td>
+                    @Html.DisplayFor(modelItem => item.IdSource)
+                </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.Namesource)
+                </td>
+                <td>
+                    <a class="btn btn-warning btn-sm w-30"asp-action="Edit" asp-route-id="@item.IdSource">Edit</a> |
+                    <a class="btn btn-info btn-sm w-30"   asp-action="Details" asp-route-id="@item.IdSource">Details</a> |
+                    <a class="btn btn-danger btn-sm w-30" asp-action="Delete" asp-route-id="@item.IdSource">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+
+</div>

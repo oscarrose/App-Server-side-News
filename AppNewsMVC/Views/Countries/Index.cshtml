@@ -1,0 +1,49 @@
+﻿@model IEnumerable<LibraryNews.Models.Country>
+
+@{
+    ViewData["Title"] = "Country";
+}
+<h1>Country</h1>
+<hr />
+<p>
+    <a class="btn btn-outline-primary btn-sm" asp-action="Create">Create New</a>
+</p>
+<form asp-controller="Countries" asp-action="Index">
+    <p>
+        <input type="text" class="txt text-sm-left" name="SearchString" placeholder="Country.." />
+        <button type="submit" class="btn btn-outline-primary btn-sm">Search</button>
+    </p>
+</form>
+<div class="table-responsive-sm">
+    <table class="table-lg table table-bordered border-dark">
+        <thead class="table-hover table-primary">
+            <tr>
+                <th>
+                  Code country
+                </th>
+                <th>
+                    Country
+                </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CodeCountry)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Namecountry)
+                </td>
+                <td>
+                    <a class="btn btn-warning btn-sm w-30"asp-action="Edit" asp-route-id="@item.CodeCountry">Edit</a> |
+                    <a class="btn btn-info btn-sm w-30"   asp-action="Details" asp-route-id="@item.CodeCountry">Details</a> |
+                    <a class="btn btn-danger btn-sm w-30" asp-action="Delete" asp-route-id="@item.CodeCountry">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

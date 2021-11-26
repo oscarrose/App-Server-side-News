@@ -1,0 +1,118 @@
+﻿@model LibraryNews.Models.Article
+
+@{
+    ViewData["Title"] = "Edit News";
+}
+<h3>Edit News</h3>
+<hr />
+
+<form asp-action="Edit">
+    <div class="container">
+
+        <div class="row">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="IdAritcle" />
+            <input type="hidden" asp-for="DateCreate" />
+            <div class="col-lg-4">
+                <label class="control-label">Source</label>
+                <select asp-for="Idsource" class="form-control" asp-items="ViewBag.Idsource"></select>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label">Category</label>
+                <select asp-for="Idcategory" class="form-control" asp-items="ViewBag.Idcategory"></select>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label">Country</label>
+                <select asp-for="Idcountry" class="form-control" asp-items="ViewBag.Idcountry"></select>
+            </div>
+
+        </div>
+
+    </div>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-4">
+                <label asp-for="Title" class="control-label"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="col-lg-4">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label">Image Url</label>
+                <input asp-for="ImageUrl" class="form-control" />
+                <span asp-validation-for="ImageUrl" class="text-danger"></span>
+            </div>
+
+        </div>
+
+    </div>
+
+    &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-4">
+                <label class="control-label">Aricle Url</label>
+                <input asp-for="ArticleUrl" class="form-control" />
+                <span asp-validation-for="ArticleUrl" class="text-danger"></span>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label"> Publication date</label>
+                <input  type="date" asp-for="PublicationDate" class="form-control" />
+                <span asp-validation-for="PublicationDate" class="text-danger"></span>
+            </div>
+            <div class="col-lg-4">
+                <label asp-for="Author" class="control-label"></label>
+                <input asp-for="Author" class="form-control" />
+                <span asp-validation-for="Author" class="text-danger"></span>
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+
+        </div>
+
+    </div>
+    <div class="container">
+        <diiv class="row">
+            <div class="col-lg-6">
+                <label class="control-label">
+                    <input class="form-check-input" asp-for="Visible" /> @Html.DisplayNameFor(model => model.Visible)
+                </label>
+            </div>
+
+        </diiv>
+    </div>
+    &nbsp;&nbsp;&nbsp;&nbsp;
+
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-10">
+                <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+            </div>
+            <div class="col-auto me-auto">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+
+
+
+        </div>
+
+    </div>
+
+</form>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

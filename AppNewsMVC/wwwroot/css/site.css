@@ -1,0 +1,131 @@
+﻿﻿ /*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+ */
+body {
+    overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+    min-height: 100vh;
+    margin-left: -15rem;
+    -webkit-transition: margin .25s ease-out;
+    -moz-transition: margin .25s ease-out;
+    -o-transition: margin .25s ease-out;
+    transition: margin .25s ease-out;
+}
+
+    #sidebar-wrapper .sidebar-heading {
+        padding: 0.875rem 1.25rem;
+        font-size: 1.4rem;
+        background-color: seagreen;
+        color: white;
+    }
+
+    #sidebar-wrapper .list-group {
+        width: 15rem;
+    }
+
+
+
+#page-content-wrapper {
+    min-width: 100vw;
+}
+
+
+#wrapper.toggled #sidebar-wrapper {
+    margin-left: 0;
+}
+
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+        margin-left: 0;
+    }
+
+    #page-content-wrapper {
+        min-width: 0;
+        width: 100%;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        margin-left: -15rem;
+    }
+
+
+    /* ----------------------------add the reloj--------------------------------------------------------------------------*/
+    /* 3D Clock */
+    #clock {
+        padding-top: 70px;
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    .digit {
+        width: 90px;
+        height: 139px;
+        float: left;
+        overflow: hidden;
+    }
+
+    .cube {
+        width: @cube-width;
+        height: @cube-height;
+        .transform-style(preserve-3d);
+    }
+
+        .cube.flip {
+            .transition(all 450ms ease);
+        }
+
+    .f1, .f2 {
+        height: @cube-height;
+    }
+
+    .f1 {
+        .translateZ(@cube-height/2);
+    }
+
+    .f2 {
+        .transform(rotateX(90deg) translateZ(@cube-height*1.5));
+    }
+
+    .cube.flip {
+        .rotateX(-89deg);
+    }
+
+    .cube {
+        text-align: center;
+        margin: 0 auto;
+    }
+
+    .f1, .f2 {
+        background: #007ACC;
+        color: #fff;
+        font-size: 130px;
+        font-weight: 300;
+        color: #fff;
+        line-height: @cube-height;
+    }
+
+    .cube.flip .f1 {
+        background: darken(#007ACC, 12%);
+        .transition(all 250ms ease);
+    }
+
+    .cube.flip .f2 {
+        background: darken(#007ACC, 0%);
+        .transition(all 250ms ease);
+    }
+
+    .f2 {
+        background: darken(#3f4157, 12%);
+    }
+
+    .separator {
+        float: left;
+        width: 30px;
+        padding-top: 46px;
+        text-align: center;
+    }
+}
